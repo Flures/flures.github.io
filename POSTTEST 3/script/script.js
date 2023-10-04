@@ -32,8 +32,11 @@ if (prevButton && nextButton) {
 
     // Mengupdate Posisi slider sesuai dengan posisi slider sekarang
     function updateSliderPosition() {
+        const sliderWidth = document.querySelector(".product-slider").offsetWidth;
+        const numSlides = document.querySelectorAll(".product-card-container").length;
         const slideWidth = document.querySelector(".product-card-container").offsetWidth;
-        const newPosition = currentSlide * slideWidth + currentSlide* 35;
+        const gapWidth = (sliderWidth - (slideWidth*numSlides)) / numSlides
+        const newPosition = currentSlide * slideWidth + currentSlide* gapWidth;
         productSlider.style.transform = `translateX(${-newPosition}px)`;
     }
 }
